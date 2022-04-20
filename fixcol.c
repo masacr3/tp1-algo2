@@ -7,7 +7,7 @@ int main(int argc, char** argv){
 
     //chequeo cantidad parametros
     if ( !(argc == 2 || argc == 3 ) ){
-        fprintf(stdin, "%s\n","Error: Cantidad erronea de parametros.");
+        fprintf(stderr, "%s\n","Error: Cantidad erronea de parametros.");
         return 0;
     }
 
