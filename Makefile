@@ -8,7 +8,7 @@ all:
 	$(CC) $(CFLAGS) $(CFILES) -o $(EXEC)
 
 run: all
-	./$(EXEC)
+	./$(EXEC) 11 < texto.txt
 
 valgrind: all
 	valgrind $(VFLAGS) ./$(EXEC)
