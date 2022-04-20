@@ -35,13 +35,21 @@ int main(int argc, char** argv){
         return 0;
     }
 
+    int corte = atoi(argv[1]);
     char* linea = NULL;
     size_t capacidad = 0;
 
     while(getline(&linea, &capacidad, stdin) > 0){
         char* linea_actual = linea;
-
-        fprintf(stdout, "%s\n", linea_actual);
+        int k = 0;
+        for(int i=0; linea_actual[i]; i++){
+            k = i;
+            if (k < corte){
+                fprintf(stdout,"\n");
+                k=0;
+            }
+            fprintf(stdout, "%c", linea_actual[i]);
+        }
     }
 
     free(linea);
