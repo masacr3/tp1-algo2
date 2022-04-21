@@ -8,7 +8,7 @@ all:
 	$(CC) $(CFLAGS) $(CFILES) -o $(EXEC)
 
 run: all
-	echo "mati pedazo de gato" | ./$(EXEC) 3
+	./$(EXEC)
 
 valgrind: all
-	valgrind $(VFLAGS) echo "mati pedazo de gato" | ./$(EXEC) 3
+	valgrind $(VFLAGS) ./$(EXEC) 
