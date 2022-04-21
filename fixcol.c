@@ -47,32 +47,25 @@ void procesar_archivo(char* corte_bytes, char* stream_, bool es_stdin){
     char* linea = NULL;
     size_t capacidad = 0;
     FILE *stream = es_stdin ? stdin : fopen(stream_, "r");
+    
     if(!stream){
         fprintf(stderr, "%s\n","Error: archivo fuente inaccesible.");
+        return;
     }
 
     while(getline(&linea, &capacidad, stream) > 0){
         procesar_linea(linea, corte);
     }
-    if(!es_stdin) fclose
+
+    if(!es_stdin) fclose(stream);
+    
     free(linea);
 }
 
 int main(int argc, char** argv){
-
     bool ok;
     checkea_parametros(argc, argv, &ok);
     if (!ok) return 0;
-
-    int corte = atoi(argv[1]);
-    char* linea = NULL;
-    size_t capacidad = 0;
-
-    while(getline(&linea, &capacidad, stdin) > 0){
-        procesar_linea(linea, corte);
-    }
-
-    free(linea);
-
+    procesar_archivo(argv[TAM_BYTES], argc == ENTRADA_STANDART ? NULL : argv[LECTURA_ARCHIVO], argc == ENTRADA_STANDART);
     return 0;
 }
