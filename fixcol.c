@@ -43,12 +43,12 @@ int main(int argc, char** argv){
         char* linea_actual = linea;
         int k = 0;
         for(int i=0; linea_actual[i]; i++){
-            k = i;
-            if (k < corte){
+            if (k == corte){
                 fprintf(stdout,"\n");
                 k=0;
             }
             fprintf(stdout, "%c", linea_actual[i]);
+            k++;
         }
     }
 
