@@ -43,29 +43,27 @@ void procesar_linea(char* linea, int corte){
 }
 
 void procesar_archivo(char* corte_bytes, char* stream_, bool es_stdin){
-    int corte = atoi(corte_bytes);
-    char* linea = NULL;
-    size_t capacidad = 0;
     FILE *stream = es_stdin ? stdin : fopen(stream_, "r");
-    
     if(!stream){
         fprintf(stderr, "%s\n","Error: archivo fuente inaccesible.");
         return;
     }
-
-    while(getline(&linea, &capacidad, stream) > 0){
-        procesar_linea(linea, corte);
-    }
-
+    int corte = atoi(corte_bytes);
+    char* linea = NULL;
+    size_t capacidad = 0;
+    while(getline(&linea, &capacidad, stream) > 0) procesar_linea(linea, corte);
     if(!es_stdin) fclose(stream);
-    
     free(linea);
 }
 
-int main(int argc, char** argv){
+void fixcol(int cant_argumentos, char** argumentos ){
     bool ok;
-    checkea_parametros(argc, argv, &ok);
-    if (!ok) return 0;
-    procesar_archivo(argv[TAM_BYTES], argc == ENTRADA_STANDART ? NULL : argv[LECTURA_ARCHIVO], argc == ENTRADA_STANDART);
+    chequea_parametros(cant_argumentos, argumentos, &ok);
+    if (ok) procesar_archivo(argumentos[TAM_BYTES], cant_argumentos == ENTRADA_STANDART ? NULL : argumentos[LECTURA_ARCHIVO], cant_argumentos == ENTRADA_STANDART);
+
+}
+
+int main(int argc, char** argv){
+    fixcol(argc,argv);
     return 0;
 }
