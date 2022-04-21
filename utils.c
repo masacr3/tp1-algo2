@@ -19,5 +19,5 @@ bool es_numero(char* s){
 
 void chequea_parametros(int cant_argumentos, char** array_argumentos, bool *ok){
     *ok = ( cant_argumentos == ENTRADA_STANDART || cant_argumentos == LECTURA_ARCHIVO || es_numero(array_argumentos[TAM_BYTES]) );
-    if (!*ok) fprintf(stderr, "%s\n","Error: Cantidad erronea de parametros.");
+    if (!*ok) fprintf(stderr, "%s\n", ERROR_PARAMETROS);
 }

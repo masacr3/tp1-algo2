@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#define ERROR_PARAMETROS "Error: Cantidad erronea de parametros."
 #define ENTRADA_STANDART 2
 #define LECTURA_ARCHIVO 3
 #define TAM_BYTES 1
