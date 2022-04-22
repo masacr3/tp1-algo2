@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#define ERROR_ARCHIVO "Error: archivo fuente inaccesible."
+#define ERROR_ARCHIVO "Error: archivo fuente inaccesible"
 
 /* Aplica un salto de linea al llegar a un "TAMANIO" dado de caracteres
  * el mismo se seguira aplicando tantas hasta llegar hasta un salto de linea en la linea a procesar

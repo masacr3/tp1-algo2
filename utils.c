@@ -18,6 +18,6 @@ bool es_numero(char* s){
 }
 
 void chequea_parametros(int cant_argumentos, char** array_argumentos, bool *ok){
-    *ok = ( cant_argumentos == ENTRADA_STANDART || cant_argumentos == LECTURA_ARCHIVO || es_numero(array_argumentos[TAM_BYTES]) );
+    *ok &= !(cant_argumentos< MIN_PARAMETROS || cant_argumentos > MAX_PARAMETROS) && es_numero(array_argumentos[TAM_BYTES]);
     if (!*ok) fprintf(stderr, "%s\n", ERROR_PARAMETROS);
 }
