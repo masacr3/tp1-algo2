@@ -14,10 +14,11 @@ size_t len_numero(int n){
 
 bool es_numero(char* s){
     int numero = atoi(s);
-    return numero == 0 ? strcmp("0", s) == 0 : len_numero(numero) == strlen(s);
+    return numero == 0 ? false : len_numero(numero) == strlen(s);
 }
 
 void chequea_parametros(int cant_argumentos, char** array_argumentos, bool *ok){
-    *ok &= !(cant_argumentos< MIN_PARAMETROS || cant_argumentos > MAX_PARAMETROS) && es_numero(array_argumentos[TAM_BYTES]);
+    *ok = true;
+    *ok &= !(cant_argumentos <MIN_PARAMETROS) && !(cant_argumentos>MAX_PARAMETROS) && es_numero(array_argumentos[TAM_BYTES]);
     if (!*ok) fprintf(stderr, "%s\n", ERROR_PARAMETROS);
 }
