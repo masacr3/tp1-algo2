@@ -6,6 +6,7 @@
 #define ENTRADA_STANDART 2
 #define LECTURA_ARCHIVO 3
 #define TAM_BYTES 1
+#define RUTA_ARCHIVO 2
 
 /* calcula la cantidad de caracteres de un numero
  * (obs) si el numero es negativo se tiene encuenta el menos como un caracter

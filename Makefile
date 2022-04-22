@@ -8,7 +8,9 @@ all:
 	$(CC) $(CFLAGS) $(CFILES) -o $(EXEC)
 
 run: all
-	./$(EXEC) 20 < l.txt
+	./$(EXEC) 75 l.txt > fixed.txt
+	./$(EXEC) 75 < l.txt > fixed2.txt
+	diff fixed.txt fixed2.txt | wc
 
 valgrind: all
 	valgrind $(VFLAGS) ./$(EXEC) 
