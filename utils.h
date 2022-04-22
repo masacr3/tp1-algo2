@@ -27,5 +27,10 @@ bool es_numero(char* s);
  *      siendo 
  *              true -> Paso el checkin
  *              false -> Parametros invalidos
+ * 
+ * en caso del que los parametros sean invalidos se mostrara un mensaje
+ * por salida standart error (stderr)
+ *      
+ *          "Error: Cantidad erronea de parametros"
  */
 void chequea_parametros(int cant_argumentos, char** array_argumentos, bool *ok);

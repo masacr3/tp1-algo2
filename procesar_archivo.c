@@ -11,14 +11,7 @@ void procesar_linea(char* linea, int tamanio){
             fprintf(stdout, "%c", linea_actual[i]);
             k++;
         }
-}
-
-void evalua_salto_fin_linea(bool *primera_linea){
-    if (primero){
-            primero = !primero;
-        }else{
-            fprintf(stdout,"\n");
-        }
+        fprintf(stdout,"\n");
 }
 
 void procesar_archivo(char* corte_bytes, char* stream_, bool es_stdin){
@@ -30,9 +23,7 @@ void procesar_archivo(char* corte_bytes, char* stream_, bool es_stdin){
     int corte = atoi(corte_bytes);
     char* linea = NULL;
     size_t capacidad = 0;
-    bool primero = true;
     while(getline(&linea, &capacidad, stream) > 0) {
-        primero ? primero = !primero : fprintf(stdout,"\n");
         procesar_linea(linea, corte);
     }
     if(!es_stdin) fclose(stream);

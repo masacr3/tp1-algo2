@@ -9,6 +9,7 @@ all:
 
 run: all
 	./$(EXEC) 5 l.txt > fixed.txt
+	echo "\n"
 	./$(EXEC) 5 < l.txt > fixed2.txt
 	diff fixed.txt fixed2.txt | wc
 	diff fixed.txt rta.txt | wc
@@ -18,5 +19,10 @@ test: all
 	./$(EXEC) 5 l.txt
 	./$(EXEC) 5 < l.txt
 	./$(EXEC) 5 rta.txt
+
 valgrind: all
-	valgrind $(VFLAGS) ./$(EXEC) 
+	valgrind $(VFLAGS) ./$(EXEC) 5 l.txt
+
+zipping:
+	rm tp1.zip
+	zip tp1.zip fixcol.c procesar_archivo.* utils.* deps.mk 

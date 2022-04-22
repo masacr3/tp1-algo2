@@ -26,6 +26,3 @@ void procesar_linea(char* linea, int tamanio);
  * este sera reflejado por "stderr" (salida standart error) 
  */
 void procesar_archivo(char* corte_bytes, char* stream_, bool es_stdin);
-
-/* Evalua si esta en la primera linea del archivo para no pegar salto de linea*/
-void evalua_salto_fin_linea(bool *primera_linea);
