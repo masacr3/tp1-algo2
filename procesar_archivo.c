@@ -8,7 +8,7 @@ void procesar_linea(char* linea, int tamanio){
                 fprintf(stdout,"\n");
                 k=0;
             }
-            fprintf(stdout, "%c", linea_actual[i]);
+            if(linea_actual[i] != EOF) fprintf(stdout, "%c", linea_actual[i]);
             k++;
         }
 }
@@ -22,7 +22,7 @@ void procesar_archivo(char* corte_bytes, char* stream_, bool es_stdin){
     int corte = atoi(corte_bytes);
     char* linea = NULL;
     size_t capacidad = 0;
-    while(getline(&linea, &capacidad, stream) > 0) procesar_linea(linea, corte);
+    while(getline(&linea, &capacidad, stream) != EOF ) procesar_linea(linea, corte);
     if(!es_stdin) fclose(stream);
     free(linea);
 }
